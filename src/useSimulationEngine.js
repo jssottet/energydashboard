@@ -8,8 +8,8 @@ export function useSimulationEngine(running, speed = 1) {
  //init
   const [state, setState] = useState({
     simTime: 0,
-    tankLevel: 0,
-    lastEnergy: 0,
+    tankLevel: 10,
+    lastEnergy: 40,
   });
 
   const queue = useRef(new EventQueue());
@@ -31,7 +31,7 @@ export function useSimulationEngine(running, speed = 1) {
 
       while (!queue.current.isEmpty() && queue.current.peek().time <= simTime) {
         const event = queue.current.next();
-
+        console.log(state);
         if (event.type === 'ENERGY_PRODUCED') {
           handleEnergyEvent(state, event);
           state.lastEnergy = event.data.energy;

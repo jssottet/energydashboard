@@ -12,7 +12,7 @@ function SimulatedEnergyDashboard() {
   const intervalRef = useRef(null);
 
   const { simTime, tankLevel, lastEnergy } = useSimulationEngine(running, speed);
-
+ 
 /*
   useEffect(() => {
     if (running) {
